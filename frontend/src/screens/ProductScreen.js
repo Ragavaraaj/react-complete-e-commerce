@@ -176,6 +176,7 @@ const ProductScreen = ({ history, match }) => {
                         onClick={addToCartHandler}
                         className="btn-block"
                         type="button"
+                        disabled
                       >
                         <i className="fas fa-plus"></i>
                         <span className="plus-sign-margin">
