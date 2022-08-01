@@ -8,8 +8,16 @@ def get_product(db: Session, p_id: int):
     return db.query(Product).filter(Product.id == p_id).first()
 
 
-def get_products(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(Product).offset(skip).limit(limit).all()
+def get_top(db: Session):
+    return db.query(Product).filter(Product.rating > 3).limit(4).all()
+
+
+def get_products(db: Session, keyword: str, skip: int = 0, limit: int = 100):
+    if(keyword.__len__):
+        search = "%{}%".format(keyword)
+        return db.query(Product).filter(Product.name.like(search)).offset(skip).limit(limit).all()
+    else:
+        return db.query(Product).offset(skip).limit(limit).all()
 
 
 def create_product(db: Session, product: PostProduct):

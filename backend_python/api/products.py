@@ -16,7 +16,7 @@ async def post_a_new_product(new_product: PostProduct, db: Session = Depends(get
 
 @router.get("/top", response_model=List[GetProduct])
 def get_top_products(db: Session = Depends(get_db)):
-    return crud.get_products(db)
+    return crud.get_top(db)
 
 
 @router.get("/{product_id}", response_model=GetProduct)
@@ -36,7 +36,7 @@ def update_product(product_id: str, db: Session = Depends(get_db)):
 
 @router.get("", response_model=GetProducts)
 def get_all_products(keyword: Union[str, None] = None, pageNumber: Union[str, None] = None, db: Session = Depends(get_db)):
-    data = crud.get_products(db)
+    data = crud.get_products(db, keyword)
     return {
         "page": 1,
         "pages": 1,

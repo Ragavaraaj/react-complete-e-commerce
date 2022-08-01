@@ -1,4 +1,5 @@
 from email.policy import default
+from enum import unique
 from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 
@@ -43,7 +44,7 @@ class User(Base):
     id = Column(String, primary_key=True, index=True)
     name = Column(String)
     password = Column(String)
-    email = Column(String)
+    email = Column(String, unique=True)
     isAdmin = Column(Boolean, default=False)
 
     reviews = relationship("Review", back_populates="user")

@@ -1,10 +1,11 @@
+from typing import Union
 from pydantic import BaseModel
 
 
 class BaseUser(BaseModel):
     name: str
     email: str
-    isAdmin: bool
+    isAdmin: Union[bool, None]
 
 
 class PostUser(BaseUser):
