@@ -1,0 +1,12 @@
+{
+  "cSpell.words": [
+    "autoflush",
+    "fastapi",
+    "psycopg",
+    "pydantic",
+    "sessionmaker",
+    "sqlalchemy",
+    "uselist",
+    "uvicorn"
+  ]
+}

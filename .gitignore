@@ -233,3 +233,7 @@ $RECYCLE.BIN/
 # .pnp.*
 
 # End of windows,macos,linux,node,react,vscode,visualstudiocode,yarn
+
+#python dependencies 
+venv
+__py*
